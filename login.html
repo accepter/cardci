@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>登入 — Card CI</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:         #f5f5f5;
+      --surface:    #ffffff;
+      --border:     #e2e2e2;
+      --text:       #2c2c2c;
+      --text-muted: #6e6e6e;
+      --accent:     #15c39a;
+      --accent-hover:#12a885;
+      --radius:     14px;
+      --shadow:     0 4px 24px rgba(0,0,0,.08);
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+                   "Helvetica Neue", Arial, "Noto Sans TC", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+    }
+
+    .login-card {
+      background: var(--surface);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 40px 36px;
+      width: 100%;
+      max-width: 400px;
+      border: 1px solid var(--border);
+    }
+
+    .login-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 28px;
+    }
+    .login-logo {
+      width: 40px;
+      height: 40px;
+      background: var(--accent);
+      border-radius: 10px;
+      display: grid;
+      place-items: center;
+      font-size: 1.2rem;
+    }
+    .login-brand h1 {
+      font-size: 1.2rem;
+      font-weight: 800;
+    }
+
+    .form-group {
+      margin-bottom: 18px;
+    }
+    .form-group label {
+      display: block;
+      font-size: .82rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .07em;
+      color: var(--text-muted);
+      margin-bottom: 7px;
+    }
+    .form-group input {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1.5px solid var(--border);
+      border-radius: 10px;
+      font-size: .95rem;
+      font-family: inherit;
+      background: var(--bg);
+      color: var(--text);
+      outline: none;
+      transition: border-color .2s, box-shadow .2s;
+    }
+    .form-group input:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(21,195,154,.12);
+    }
+
+    .btn-login {
+      width: 100%;
+      padding: 13px;
+      border: none;
+      border-radius: 10px;
+      background: var(--accent);
+      color: #fff;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background .2s, transform .1s;
+      margin-top: 4px;
+    }
+    .btn-login:hover { background: var(--accent-hover); }
+    .btn-login:active { transform: scale(.98); }
+
+    .back-link {
+      display: block;
+      text-align: center;
+      margin-top: 20px;
+      font-size: .88rem;
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color .2s;
+    }
+    .back-link:hover { color: var(--accent); }
+  </style>
+</head>
+<body>
+  <div class="login-card">
+    <div class="login-brand">
+      <div class="login-logo">🗂</div>
+      <h1>Card CI</h1>
+    </div>
+
+    <form id="loginForm" action="index.html" method="get">
+      <div class="form-group">
+        <label for="email">電子郵件</label>
+        <input type="email" id="email" name="email" placeholder="you@example.com" required autocomplete="email" />
+      </div>
+
+      <div class="form-group">
+        <label for="password">密碼</label>
+        <input type="password" id="password" name="password" placeholder="••••••••" required autocomplete="current-password" />
+      </div>
+
+      <button type="submit" class="btn-login">登入</button>
+    </form>
+
+    <a class="back-link" href="index.html">← 返回首頁</a>
+  </div>
+</body>
+</html>
